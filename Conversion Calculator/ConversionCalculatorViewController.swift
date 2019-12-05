@@ -17,10 +17,9 @@ class ConversionCalculatorViewController: UIViewController {
     var inputLabel = UILabel(frame: CGRect(x: 0,y: 0,width: 50,height: 0))
     var outputLabel = UILabel(frame: CGRect(x: 0,y: 0,width: 50,height: 0))
     
-    var inNum: Double = 0;
-    //var outNum: Double = 0;
-    
     let conversionArray: [Conversions] = [Conversions(label: "Fahrenheit to Celcius", inputUnit: "°F", outputUnit: "°C"), Conversions(label: "Celcius to Fahrenheit", inputUnit: "°C", outputUnit: "°F"), Conversions(label: "Miles to Kilometers", inputUnit: "mi", outputUnit: "km"), Conversions(label: "Kilometers to Miles", inputUnit: "km", outputUnit: "mi")]
+    
+    var inNum: Double = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +105,14 @@ class ConversionCalculatorViewController: UIViewController {
     
     }
     
+    @IBAction func getDecimal(_ sender: Any) {
+        
+        if(inputDisplay.text != ""){
+            inputDisplay.text = inputDisplay.text! + "."
+        }
+        
+    }
+    
     @IBAction func makeClear(_ sender: Any) {
             inputDisplay.text = ""
             outputDisplay.text = ""
@@ -127,14 +134,6 @@ class ConversionCalculatorViewController: UIViewController {
             outputDisplay.text = String(format:"%.02f", inNum*1.60934)
         } else if( self.inputLabel.text == self.conversionArray[3].inputUnit ){
             outputDisplay.text = String(format:"%.02f", inNum*0.621371)
-        }
-        
-    }
-    
-    @IBAction func getDecimal(_ sender: Any) {
-        
-        if(inputDisplay.text != ""){
-            inputDisplay.text = inputDisplay.text! + "."
         }
         
     }
