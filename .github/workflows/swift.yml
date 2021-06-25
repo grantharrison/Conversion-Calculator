@@ -1,13 +1,14 @@
 name: Swift
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 
 jobs:
-  build:
+  Hello World:
 
     runs-on: macos-latest
 
